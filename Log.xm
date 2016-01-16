@@ -1,0 +1,67 @@
+%hook CNSaveRequest
+- (NSDictionary * )addedContactsByContainerIdentifier { %log; NSDictionary *  r = %orig; NSLog(@" = %@", r); return r; }
+- (NSArray * )updatedContacts { %log; NSArray *  r = %orig; NSLog(@" = %@", r); return r; }
+- (NSArray * )allGroups { %log; NSArray *  r = %orig; NSLog(@" = %@", r); return r; }
+- (unsigned long long )hash { %log; unsigned long long  r = %orig; NSLog(@" = %llu", r); return r; }
+- (Class )superclass { %log; Class  r = %orig; NSLog(@" = 0x%x", (unsigned int)r); return r; }
+- (NSString * )description { %log; NSString *  r = %orig; NSLog(@" = %@", r); return r; }
+- (NSString * )debugDescription { %log; NSString *  r = %orig; NSLog(@" = %@", r); return r; }
+-(NSArray *)contactChangeRequests { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSArray *)deletedContacts { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSArray *)addedAccounts { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSDictionary *)addedAccountContainersByParentContainerIdentifier { %log; NSDictionary * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSDictionary *)addedMembersByGroupIdentifier { %log; NSDictionary * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSDictionary *)addedSubgroupsByGroupIdentifier { %log; NSDictionary * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSDictionary *)addedGroupsByContainerIdentifier { %log; NSDictionary * r = %orig; NSLog(@" = %@", r); return r; }
+-(id)allContainerIdentifierStrings:(BOOL*)arg1  { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+-(NSArray *)allContactIdentifiers { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSArray *)allGroupIdentifiers { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSArray *)updatedContainers { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSArray *)allContainers { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSArray *)deletedGroups { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSArray *)updatedGroups { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(id)groupWithAddedMemberForGroupIdentifier:(id)arg1  { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+-(NSDictionary *)removedMembersByGroupIdentifier { %log; NSDictionary * r = %orig; NSLog(@" = %@", r); return r; }
+-(id)groupWithRemovedMemberForGroupIdentifier:(id)arg1  { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+-(id)groupWithAddedSubgroupForGroupIdentifier:(id)arg1  { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+-(NSDictionary *)removedSubgroupsByGroupIdentifier { %log; NSDictionary * r = %orig; NSLog(@" = %@", r); return r; }
+-(id)groupWithRemovedSubgroupForGroupIdentifier:(id)arg1  { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+-(void)_insertContact:(id)arg1 intoDictionary:(id)arg2 complementDictionary:(id)arg3  { %log; %orig; }
+-(id)flattenedDictionaryForDictionaryOfTuples:(id)arg1  { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+-(id)_dictionaryOfArraysFromDictionaryOfDictionaries:(id)arg1  { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+-(id)allContainerIdentifiers:(BOOL*)arg1  { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+-(id)allAccountIdentifiers { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+-(void)setMeCardIdentifier:(NSString *)arg1  { %log; %orig; }
+-(void)addGroup:(id)arg1 toContainerWithIdentifier:(id)arg2  { %log; %orig; }
+-(void)updateGroup:(id)arg1  { %log; %orig; }
+-(void)deleteGroup:(id)arg1  { %log; %orig; }
+-(void)removeMember:(id)arg1 fromGroup:(id)arg2  { %log; %orig; }
+-(void)addSubgroup:(id)arg1 toGroup:(id)arg2  { %log; %orig; }
+-(void)removeSubgroup:(id)arg1 fromGroup:(id)arg2  { %log; %orig; }
+-(NSString *)meCardIdentifier { %log; NSString * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSDictionary *)addedContainersByParentContainerIdentifier { %log; NSDictionary * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSArray *)deletedContainers { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(NSDictionary *)movedContainersByParentContainerIdentifier { %log; NSDictionary * r = %orig; NSLog(@" = %@", r); return r; }
+-(void)addContainer:(id)arg1 toContainerWithIdentifier:(id)arg2  { %log; %orig; }
+-(void)addContainer:(id)arg1 toAccountWithIdentifier:(id)arg2  { %log; %orig; }
+-(void)moveContainer:(id)arg1 toContainerWithIdentifier:(id)arg2  { %log; %orig; }
+-(void)deleteContainer:(id)arg1  { %log; %orig; }
+-(void)updateContainer:(id)arg1  { %log; %orig; }
+-(NSArray *)allAccountIdentifierStrings { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(BOOL)unsafeApplyChangesOnly { %log; BOOL r = %orig; NSLog(@" = %d", r); return r; }
+-(void)setUnsafeApplyChangesOnly:(BOOL)arg1  { %log; %orig; }
+-(void)deleteContact:(id)arg1  { %log; %orig; }
+-(void)unlinkContact:(id)arg1  { %log; %orig; }
+-(void)linkContact:(id)arg1 toContact:(id)arg2  { %log; %orig; }
+-(void)addMember:(id)arg1 toGroup:(id)arg2  { %log; %orig; }
+-(void)addContact:(id)arg1 toContainerWithIdentifier:(id)arg2  { %log; %orig; }
+-(void)preferLinkedContactForImage:(id)arg1 inUnifiedContact:(id)arg2  { %log; %orig; }
+-(void)preferLinkedContactForName:(id)arg1 inUnifiedContact:(id)arg2  { %log; %orig; }
+-(NSArray *)allContacts { %log; NSArray * r = %orig; NSLog(@" = %@", r); return r; }
+-(void)dealloc { %log; %orig; }
+-(id)init { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+-(void)updateContact:(id)arg1  { %log; %orig; }
+-(BOOL)isValid:(id*)arg1  { %log; BOOL r = %orig; NSLog(@" = %d", r); return r; }
+-(NSString *)storeIdentifier { %log; NSString * r = %orig; NSLog(@" = %@", r); return r; }
+-(void)addAccount:(id)arg1  { %log; %orig; }
+%end
