@@ -1,3 +1,6 @@
+# SwipeToDeleteContact
+A tweak that enables swipe to delete in the native contacts app in iOS
+
 So I was working on a tweak to delete a contact via a swipe gesture...
 
 Anyway I got the swiping to be enabled (easy part), but I can't figure out how to delete the contact successfully...
