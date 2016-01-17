@@ -1,10 +1,14 @@
-#import "ContactsUI/CNContactListViewController.h"
+#import "ContactsUI/CNContactListViewController.h"  // MANDATORY HEADER
+
+//  THESE HEADERS MIGHT BE THE KEY TO DELETION
+
 #import "ContactsUI/CNContactListTableViewCell.h"
 #import "ContactsUI/CNContactDeleteContactAction.h"
 #import "Contacts/CNContact.h"
 #import "Contacts/CNMutableContact.h"
 #import "Contacts/CNSaveRequest.h"
 #import "ContactsUI/CNContactDataSource.h"
+
 
 
 %hook CNContactListViewController //THIS IS A SUBCLASS OF A UITABLEVIEWCONTROLLER
@@ -17,7 +21,7 @@
 
 %new
  -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
- 											forRowAtIndexPath:(NSIndexPath *)indexPath
+ 					    forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
