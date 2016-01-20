@@ -1,9 +1,10 @@
 Package: com.packetfahrer.swipetodeletecontact
 Name: SwipeToDeleteContact
 Depends: mobilesubstrate,firmware (>= 9.0)
-Version: 0.0.1
 Architecture: iphoneos-arm
 Description: Delete Contacts with Swipe!
 Maintainer: sst1337 
 Author: Rene Kahle <packetfahrer@web.de>
 Section: Tweaks
+Version: 0.0.1
+Installed-Size: 440

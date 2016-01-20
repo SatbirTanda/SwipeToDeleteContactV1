@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Settings</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.packetfahrer.SwipeChanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.packetfahrer.swipetodeletecontact</string>
+			<key>key</key>
+			<string>swEnabled</string>
+			<key>label</key>
+			<string>Enabled</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.packetfahrer.SwipeChanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.packetfahrer.swipetodeletecontact</string>
+			<key>key</key>
+			<string>useAlarm</string>
+			<key>label</key>
+			<string>Confirm</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>donation</string>
+			<key>cell</key>
+			<string>PSStaticTextCell</string>
+			<key>icon</key>
+			<string>paypal.png</string>
+			<key>id</key>
+			<string>dC_Donation</string>
+			<key>label</key>
+			<string>Donation</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>twitter</string>
+			<key>cell</key>
+			<string>PSStaticTextCell</string>
+			<key>icon</key>
+			<string>twitter.png</string>
+			<key>id</key>
+			<string>dC_Twitter</string>
+			<key>label</key>
+			<string>Find me on Twitter</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Other Tweaks by Me:</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>dimMe</string>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>label</key>
+			<string>DimMe</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>noMore</string>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>label</key>
+			<string>NoMoreMissed</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>stopalarm8</string>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>label</key>
+			<string>StopAlarm iOS8 </string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Developed by Packetfahrer © 2016</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>SwipeToDeleteContact</string>
+</dict>
+</plist>
