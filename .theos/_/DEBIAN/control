@@ -1,9 +1,10 @@
 Package: com.sst1337.swipetodeletecontact
 Name: SwipeToDeleteContact
 Depends: mobilesubstrate,firmware (>= 9.0)
-Version: 0.0.1
 Architecture: iphoneos-arm
 Description: An awesome MobileSubstrate tweak!
 Maintainer: Rene Kahle <packetfahrer@web.de>
 Author: sst1337
 Section: Tweaks
+Version: 0.0.1
+Installed-Size: 168
