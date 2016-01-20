@@ -1,14 +1,7 @@
 
-
-//#import "ContactsUI/CNContactListViewController.h"  // MANDATORY HEADER
-
 #import <UIKit/UIKit.h>
-
 #import "Headers.h"
-
 #define IS_OS_9_OR_LATER [[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0
-
-
 #define APPID @"com.packetfahrer.swipetodeletecontact"
 #define DEFAULT_ENABLED YES
 #define PREFS_ENABLED_KEY @"useAlarm"
@@ -65,8 +58,6 @@ void loadPreferences() {
 		NSArray *keyList = [(NSArray *)CFPreferencesCopyKeyList((CFStringRef)APPID, kCFPreferencesCurrentUser, kCFPreferencesAnyHost) autorelease];
 		preferences = (NSDictionary *)CFPreferencesCopyMultiple((CFArrayRef)keyList, (CFStringRef)APPID, kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
 
-		
-
 	}
 
 
@@ -100,7 +91,6 @@ void loadPreferences() {
 	}
 
 
-	
 	return YES;
 
 	}

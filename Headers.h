@@ -35,15 +35,12 @@
 
 @end
 
-
 @class NSMutableDictionary, NSString, NSMutableArray, NSDictionary, NSArray;
 
 @interface CNSaveRequest : NSObject 
 
-
 -(void)deleteContact:(id)arg1 ;
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
-
 
 @end
 
@@ -59,12 +56,11 @@
 
 
 
-
 @interface UITableViewRowData : NSObject
 - (NSInteger)globalRowForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@interface UITableView (OBOContacts)
+@interface UITableView (SwipeToDeleteContact)
 - (UITableViewRowData *)_rowData;
 @end
 
