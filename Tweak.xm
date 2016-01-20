@@ -6,6 +6,28 @@
 
 #import "Headers.h"
 
+#define IS_OS_9_OR_LATER [[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0
+
+
+#define APPID @"com.packetfahrer.swipetodeletecontact"
+#define DEFAULT_ENABLED YES
+#define PREFS_ENABLED_KEY @"useAlarm"
+
+#define Enabled ([preferences objectForKey: PREFS_ENABLED_KEY] ? [[preferences objectForKey: PREFS_ENABLED_KEY] boolValue] : DEFAULT_ENABLED)
+
+#define DEFAULT_USEALARM YES
+#define PREFS_USEALARM_KEY @"useAlarm"
+
+#define useAlarm ([preferences objectForKey: PREFS_USEALARM_KEY] ? [[preferences objectForKey: PREFS_USEALARM_KEY] boolValue] : DEFAULT_USEALARM)
+
+
+#define LocalizationsDirectory @"/Library/Application Support/SwipeToDeleteContact/Localizations"
+#define LOCALIZED_TITEL  [[NSBundle bundleWithPath:LocalizationsDirectory]localizedStringForKey:@"Swipe to Delete!" value:@"Swipe to Delete!" table:nil]
+#define LOCALIZED_MESSAGE [[NSBundle bundleWithPath:LocalizationsDirectory]localizedStringForKey:@"Really delete this Contact?" value:@"Really delete this Contact?" table:nil]
+#define LOCALIZED_CANCEL [[NSBundle bundleWithPath:LocalizationsDirectory]localizedStringForKey:@"Cancel" value:@"Cancel" table:nil]
+#define LOCALIZED_YES [[NSBundle bundleWithPath:LocalizationsDirectory]localizedStringForKey:@"Yes" value:@"Yes" table:nil]
+
+
 //  THESE HEADERS MIGHT BE THE KEY TO DELETION
 /*
 
@@ -21,8 +43,36 @@
 static NSInteger globalRow = -1;
 static CNContactStoreDataSource *dataSource;
 static CNContactStore *store;
-static BOOL useAlarm = YES; //Like Confirm 
 
+// static BOOL useAlarm = YES; //Like Confirm 
+
+static NSDictionary *preferences = nil;
+
+
+void loadPreferences() {
+	
+	
+	if (preferences) {
+		[preferences release];
+		 preferences = nil;
+
+
+	}
+	
+	if (IS_OS_9_OR_LATER) { 
+
+		
+		NSArray *keyList = [(NSArray *)CFPreferencesCopyKeyList((CFStringRef)APPID, kCFPreferencesCurrentUser, kCFPreferencesAnyHost) autorelease];
+		preferences = (NSDictionary *)CFPreferencesCopyMultiple((CFArrayRef)keyList, (CFStringRef)APPID, kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
+
+		
+
+	}
+
+
+}	
+
+%group main
 
 
 %hook CNContactListViewController //THIS IS A SUBCLASS OF A UITABLEVIEWCONTROLLER
@@ -40,6 +90,8 @@ static BOOL useAlarm = YES; //Like Confirm
 
 - (BOOL)tableView:(id)arg1 canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	if (Enabled) {
+
 	if ([[[self tableView] _rowData] globalRowForRowAtIndexPath:indexPath] == 0  && [[[NSBundle mainBundle] bundleIdentifier] isEqualToString:@"com.apple.mobilephone"]) {
 
 	
@@ -47,8 +99,13 @@ static BOOL useAlarm = YES; //Like Confirm
 
 	}
 
+
 	
 	return YES;
+
+	}
+
+	return %orig;
 
 }
 
@@ -68,11 +125,11 @@ static BOOL useAlarm = YES; //Like Confirm
     	if (useAlarm) {
 
 
-   		UIAlertView *x = [[UIAlertView alloc] initWithTitle:@"SwipeToDeleteContact!" 
-					    message:@"Really delete this contact?"
+   		UIAlertView *x = [[UIAlertView alloc] initWithTitle:LOCALIZED_TITEL
+					    message:LOCALIZED_MESSAGE
 					    delegate:self
-				  		cancelButtonTitle:@"Cancel"
-				  		otherButtonTitles:@"YES", nil];
+				  		cancelButtonTitle:LOCALIZED_CANCEL
+				  		otherButtonTitles:LOCALIZED_YES, nil];
    						[x setTag:0075];
 						[x show];
 
@@ -145,5 +202,27 @@ static BOOL useAlarm = YES; //Like Confirm
 	
 }
 
+%end
 
 %end
+
+
+%ctor {
+	@autoreleasepool {
+		
+		%init(main);
+
+
+		loadPreferences();
+
+    	
+		CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
+											NULL,
+											(CFNotificationCallback)loadPreferences,
+											CFSTR("com.packetfahrer.SwipeChanged"),
+											NULL,
+											CFNotificationSuspensionBehaviorDeliverImmediately);
+	}
+
+}
+

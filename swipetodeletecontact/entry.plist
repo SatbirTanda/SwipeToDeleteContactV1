@@ -1,0 +1,10 @@
+{
+    entry = {
+	bundle = SwipeToDeleteContact;
+	cell = PSLinkCell;
+	detail = SwipeToDeleteContactListController;
+	icon = SwipeToDeleteContactsPrefs.png;
+	isController = 1;
+	label = "SwipeToDeleteContact";
+    };
+}
