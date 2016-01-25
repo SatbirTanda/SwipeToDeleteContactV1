@@ -171,15 +171,15 @@ void loadPreferences() {
 
 		store = [dataSource store];
 
-    	CNSaveRequest *saveRequest = [[CNSaveRequest alloc] init];
+    		CNSaveRequest *saveRequest = [[CNSaveRequest alloc] init];
 
     	
-    	CNMutableContact *updatedContact = [[dataSource.contacts objectAtIndex:globalRow] mutableCopy];
+    		CNMutableContact *updatedContact = [[dataSource.contacts objectAtIndex:globalRow] mutableCopy];
 
-    	CNContact *c = [dataSource.contacts objectAtIndex:globalRow];
+    		CNContact *c = [dataSource.contacts objectAtIndex:globalRow];
     	
 
-    	[updatedContact setSnapshot:c];
+    		[updatedContact setSnapshot:c];
 
 
 		[saveRequest deleteContact:updatedContact];
