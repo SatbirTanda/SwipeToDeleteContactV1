@@ -10,3 +10,5 @@ I hope someone can finish this tweak and release it on BigBoss...
 Feel free to add your name to the control and send a pull request! (Give credit to all contributors)
 
 EDIT (January 20, 2016): Packetfahrer from Germany has pretty much finished this.
+
+![SS1](https://raw.github.com/sst1337/sst1337.github.io/blob/master/assests/STDC1.png)
