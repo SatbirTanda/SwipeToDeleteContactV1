@@ -11,4 +11,6 @@ Feel free to add your name to the control and send a pull request! (Give credit 
 
 EDIT (January 20, 2016): Packetfahrer from Germany has pretty much finished this.
 
+<img src="https://raw.githubusercontent.com/sst1337/sst1337.github.io/master/assests/STDC1.png" width="33%">
 <img src="https://raw.githubusercontent.com/sst1337/sst1337.github.io/master/assests/STDC2.png" width="33%">
+<img src="https://raw.githubusercontent.com/sst1337/sst1337.github.io/master/assests/STDC3.png" width="33%">
